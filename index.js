@@ -7,18 +7,23 @@ const promptUser = () =>
     inquirer.prompt([
         {
             type: `input`,
-            name: `description`,
-            message: `Describe your README generator`,
+            name: `title`,
+            message: `What is the Title of your README.md file?`,
         },
         {
             type: `input`,
-            name: `installation instructions`,
+            name: `description`,
+            message: `Describe your README generator.`,
+        },
+        {
+            type: `input`,
+            name: `installation`,
             message: `Describe your instructions for installing your README generator`,
         },
         {
             type: `input`,
-            name: `usage information`,
-            message: `Describe how your README generator works`,
+            name: `usage`,
+            message: `Describe how your README generator works.`,
         },
         {
             type: `input`,
@@ -35,9 +40,9 @@ const promptUser = () =>
             name: `license`,
             message: `What type of license do you want to use with your README generator?`,
             choices: [
-                `Public Domain (Unlicensed)`,
-                `Apache License`,
-                `GPL License`,
+                `afl-3.0`,
+                `osl-3.0`,
+                `ms-pl`,
             ]
         },
         {
@@ -54,39 +59,38 @@ const promptUser = () =>
 
 
 const generateMarkdown = (answers) =>
-`# Title
+    `# Title
 ${answers.title}
 
 ## License
-${answers.license}
-
+![Image of License](https://img.shields.io/static/v1?label=License&message=${answers.license}&color=blueviolet)
 ## Description
 ${answers.description}
 
-## Table of Contents
-Installation
-Usage
-License
-Contributing
-Tests
-Questions
+### Table of Contents
+[Installation](#installation)
+[Usage](#usage)
+[License](#license)
+[Contributing](#contributing)
+[Tests](#tests)
+[Questions](#questions)
 
-## Installation
+#### Installation
 ${answers.installation}
 
-## Usage
+#### Usage
 ${answers.usage}
 
-## License
+#### License
 ${answers.license}
 
-## Contributing
+#### Contributing
 ${answers.contributing}
 
-## Tests
+#### Tests
 ${answers.tests}
 
-## Questions
+#### Questions
 If you have any questions for me about my README generator, please reach out to me via GitHub at ${answers.github} or send me an email at ${answers.email}.`
 
 
@@ -95,16 +99,3 @@ promptUser()
     .then((answers) => writeFileAsync(`README.md`, generateMarkdown(answers)))
     .then(() => console.log(`Successfully wrote to README.md`))
     .catch((err) => console.error(err));
-
-
-// // function to write README file
-// function writeToFile(fileName, data) {
-// }
-
-// // function to initialize program
-// function init() {
-
-// }
-
-// // function call to initialize program
-// init();
