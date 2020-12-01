@@ -24,16 +24,6 @@ When a user goes into my “README-GENERATOR” folder, they must open an integr
 
 https://drive.google.com/file/d/1cy0rsojpe4WkUFTNqY5Dq9rtOB52ivl6/view"
 
-<img src="assets/picture1.png">
-<br>
-<img src="assets/picture2.png">
-<br>
-<img src="assets/picture3.png">
-<br>
-<img src="assets/picture4.png">
-<br>
-<img src="assets/picture5.png">
-
 #### License
 ms-pl
 
