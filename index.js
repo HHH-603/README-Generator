@@ -1,7 +1,9 @@
 const inquirer = require(`inquirer`);
 const fs = require(`fs`);
+const util = require(`util`);
+const writeFileAsync = util.promisify(fs.writeFile);
 
-const questions = () =>
+const promptUser = () =>
     inquirer.prompt([
         {
             type: `input`,
@@ -40,7 +42,7 @@ const questions = () =>
         },
         {
             type: `input`,
-            name: `github username`,
+            name: `github`,
             message: `What is your GitHub username?`,
         },
         {
@@ -50,14 +52,59 @@ const questions = () =>
         },
     ]);
 
-// function to write README file
-function writeToFile(fileName, data) {
-}
 
-// function to initialize program
-function init() {
+const generateMarkdown = (answers) =>
+`# Title
+${answers.title}
 
-}
+## License
+${answers.license}
 
-// function call to initialize program
-init();
+## Description
+${answers.description}
+
+## Table of Contents
+Installation
+Usage
+License
+Contributing
+Tests
+Questions
+
+## Installation
+${answers.installation}
+
+## Usage
+${answers.usage}
+
+## License
+${answers.license}
+
+## Contributing
+${answers.contributing}
+
+## Tests
+${answers.tests}
+
+## Questions
+If you have any questions for me about my README generator, please reach out to me via GitHub at ${answers.github} or send me an email at ${answers.email}.`
+
+
+
+promptUser()
+    .then((answers) => writeFileAsync(`README.md`, generateMarkdown(answers)))
+    .then(() => console.log(`Successfully wrote to README.md`))
+    .catch((err) => console.error(err));
+
+
+// // function to write README file
+// function writeToFile(fileName, data) {
+// }
+
+// // function to initialize program
+// function init() {
+
+// }
+
+// // function call to initialize program
+// init();
