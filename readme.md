@@ -15,10 +15,12 @@ My README generator uses JavaScript and Node.js to ask a user important question
 [Questions](#questions)
 
 #### Installation
-In order to get my README generator to work, a user will need to open an integrated terminal in the “README-GENERATOR” folder, enter “Node index.js” into the command line, and then answer each of the prompted questions.
+In order to get my README generator to work, a user will need to open an integrated terminal in the “README-GENERATOR” folder, enter “npm start” into the command line, and then answer each of the prompted questions.
+
+![readme-questions](./assets/images/readme-questions.PNG)
 
 #### Usage
-When a user goes into my “README-GENERATOR” folder, they must open an integrated terminal, install npm and npm inquirer, and then enter “Node index.js” to initiate the prompted questions. Once a user that answered each of the questions, a completed README.md file is generated containing their responses.
+When a user goes into my “README-GENERATOR” folder, they must open an integrated terminal, install npm and npm inquirer, and then enter “npm start” to initiate the prompted questions. Once a user that answered each of the questions, a completed README.md file is generated containing their responses.
 
 #### License
 ms-pl
